@@ -1,26 +1,60 @@
 #include <iostream>
-#include <string>
-#define mi(a,b) (a<b) ? a : b
+#include <vector>
 using namespace std;
-template<typename T>
+template<class T>
+class Pila{
+    vector<T> a;
+    int _size;
+    T *p;
+public:
+    Pila(){
+        _size=0;
+        p=new T [_size];
+    }
+    void push(const T a){
+        p[++_size]=a;
+    }
+    void pop(){
+        T *a=new T[--_size];
+        for(int i=0;i<_size;++i)
+            a[i]=p[i];
+        p=a;
+    }
+    T imprimir(){
+        for (int i=1;i<=_size;++i)
+            cout<<p[i]<<endl;
 
-T minimo(T const a, T const b){
-    if (a<b)
-        return a;
-    else
-        return b;
+    }
+    bool vacia(){
+        if (_size==0)
+            cout<< "vacio"<<endl;
+        else
+            cout<<"no esta vacia"<<endl;
+    }
+    Pila<T>operator +(const Pila<T>&a1,const Pila<T>&a2){
+        for (int i=0;i<_size;++i)
+            cout<<a1[i]<<endl;
+        for(int i=0;i<_size;++i)
+            cout<<a2[i]<<endl;
+    }
+
+
+};
+int main()
+{
+    Pila<int>q;
+    q.push(3);
+    q.push(4);
+    q.vacia();
+    q.pop();
+    q.imprimir();
+    cout<<"---------"<<endl;
+    Pila<float>a;
+    a.push(2.5);
+    a.push(5.3);
+    a.vacia();
+    a.imprimir();
+
 
 }
-main(){
-    int a=2;
-    int b=0;
-    float c=4.25;
-    float d=9.45;
-    string f="l";
-    string g="b";
-    cout<<minimo(a,b)<<endl;
-    cout<<minimo(c,d)<<endl;
-    cout<<minimo(f,g)<<endl;
-}
-
 
