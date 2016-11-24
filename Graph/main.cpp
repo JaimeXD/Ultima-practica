@@ -12,7 +12,7 @@ public:
             graf[starts[i]].push_back(fin[i]);
     }
     int numOutgoing(const int nodeID) const{
-        return adjacent(nodoID) ;
+        return adjacent(nodoID).size() ;
     }
     const vector<int> adjacent(const int nodeID) const{
         return graf.find(ID_nodo) -> second;
